@@ -4,12 +4,15 @@ language: go
 
 services:
   - docker
+  
+before_install:
+  - go get github.com/onsi/ginkgo/ginkgo
 
 go:
   - "1.13.x"
 
 env:
-  - IMAGE_REGISTRY=quay.io/rh-marketplace 
+  - IMAGE_REGISTRY=quay.io/rh-marketplace  PATH=$PATH:$(go env GOPATH)/bin
 #  - DOCKER_BUILDKIT=1
 
 jobs:
