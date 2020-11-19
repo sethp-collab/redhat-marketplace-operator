@@ -9,6 +9,7 @@ go:
 
 env:
   - IMAGE_REGISTRY=quay.io/rh-marketplace
+  - DOCKER_BUILDKIT=1
 
 jobs:
   include:
