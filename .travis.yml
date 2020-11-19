@@ -13,9 +13,10 @@ env:
 jobs:
   include:
     - stage: test
-      script: docker build --build-arg ARCH=ppc64le -t "quay.io/rh-marketplace/golang-base:1.15" -f build/base.Dockerfile . \
-              && docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-metric-state:1.0.4" -f build/metricState.Dockerfile . \
-              && docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-reporter:1.0.4" -f build/reporter.Dockerfile . \
-              && docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-authcheck:1.0.4" -f build/authcheck.Dockerfile . \
-              && docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-operator:1.0.4" -f build/Dockerfile . \
-              && make test-ci-unit
+      script: 
+              - docker build --build-arg ARCH=ppc64le -t "quay.io/rh-marketplace/golang-base:1.15" -f build/base.Dockerfile .
+              - docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-metric-state:1.0.4" -f build/metricState.Dockerfile .
+              - docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-reporter:1.0.4" -f build/reporter.Dockerfile .
+              - docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-authcheck:1.0.4" -f build/authcheck.Dockerfile .
+              - docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-operator:1.0.4" -f build/Dockerfile .
+              - make test-ci-unit
