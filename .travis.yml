@@ -2,10 +2,6 @@ dist: focal
 arch: ppc64le
 language: go
 
-#before_install:
-#  - sudo apt update && sudo apt install -y https://packages.ubuntu.com/bionic-updates/docker.io
-#  - go get github.com/onsi/ginkgo/ginkgo
-
 services:
   - docker
 
@@ -13,7 +9,8 @@ go:
   - "1.13.x"
 
 env:
-  - IMAGE_REGISTRY=quay.io/rh-marketplace DOCKER_BUILDKIT=1
+  - IMAGE_REGISTRY=quay.io/rh-marketplace 
+#  - DOCKER_BUILDKIT=1
 
 jobs:
   include:
