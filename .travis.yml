@@ -8,8 +8,7 @@ go:
   - "1.13.x"
 
 env:
-  - IMAGE_REGISTRY=quay.io/rh-marketplace
-  - DOCKER_BUILDKIT=1
+  - IMAGE_REGISTRY=quay.io/rh-marketplace DOCKER_BUILDKIT=1
 
 jobs:
   include:
