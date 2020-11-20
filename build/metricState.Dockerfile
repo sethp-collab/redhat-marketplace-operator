@@ -12,11 +12,11 @@ COPY cmd cmd
 COPY pkg pkg
 COPY test test
 
-#RUN --mount=type=cache,target=/go/pkg/mod \
-#  --mount=type=cache,target=/root/.cache/go-build \
-#   go build -o build/_output/bin/redhat-marketplace-metric-state ./cmd/metrics
+RUN --mount=type=cache,target=/go/pkg/mod \
+  --mount=type=cache,target=/root/.cache/go-build \
+   go build -o build/_output/bin/redhat-marketplace-metric-state ./cmd/metrics
 
-RUN go build -o build/_output/bin/redhat-marketplace-metric-state ./cmd/metrics
+#RUN go build -o build/_output/bin/redhat-marketplace-metric-state ./cmd/metrics
 
 FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 
