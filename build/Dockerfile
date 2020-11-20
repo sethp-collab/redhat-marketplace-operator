@@ -1,3 +1,4 @@
+# syntax = docker/dockerfile:1.0.0-experimental
 FROM quay.io/rh-marketplace/golang-base:1.15 as builder
 WORKDIR /usr/local/go/src/github.com/redhat-marketplace/redhat-marketplace-operator
 
