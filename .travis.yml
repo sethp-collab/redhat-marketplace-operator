@@ -6,6 +6,9 @@ services:
   - docker
   
 before_install:
+  - echo '{"experimental":"enabled"}' | sudo tee /etc/docker/daemon.json
+  - echo '{"experimental":"enabled"}' | sudo tee $HOME/.docker/config.json
+  - sudo service docker restart
   - go get github.com/onsi/ginkgo/ginkgo
 
 go:
@@ -19,7 +22,7 @@ jobs:
     - stage: test
       script: 
               #- docker --version
-              - export DOCKER_CLI_EXPERIMENTAL=enabled
+              #- export DOCKER_CLI_EXPERIMENTAL=enabled
               - export DOCKER_BUILDKIT=1
               #- docker build -t "public-image-registry.apps-crc.testing/symposium/redhat-marketplace-operator:1.0.4" -f build/Dockerfile .
               - docker build --build-arg ARCH=ppc64le -t "quay.io/rh-marketplace/golang-base:1.15" -f build/base.Dockerfile .
